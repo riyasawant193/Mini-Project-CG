@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<dos.h>
+#include<stdlib.h>
+#include<conio.h>
+void getup()
+{
+	window(1,25,80,25);             // new co-ordinates
+	textcolor(9);
+	for(int x=0;x<79;x++)
+	cprintf("ß");                   // used for special characters
+	textcolor(10);                  // used to change the color
+}
+
+void ds()
+{
+	static int a=1,b=1;
+	while(!kbhit()){                // used to determine if a key has been pressed or not
+	window(2,16,17,25);
+	window(b+1,16,b+17,25);
+	cprintf("         ÜÛßÛÛÛÛÜ");
+	cprintf("         ÛÛÛÛÛÛÛÛ");
+	cprintf("         ÛÛÛÛÛßßß");
+	cprintf(" Û      ÜÛÛÛÛßßß ");
+	cprintf(" ÛÛÜ  ÜÛÛÛÛÛÛÜÜÜ ");
+	cprintf(" ßÛÛÛÛÛÛÛÛÛÛÛ  ß ");
+	cprintf("   ßÛÛÛÛÛÛÛß     ");
+	if(a==1)
+	{
+	cprintf("    ßÛÛß  ßßß    ");
+	cprintf("      ÛÜ         ");
+	a=2;
+	}
+	else if(a==2)
+	{
+	cprintf("     ßÛÜ ßÛ      ");
+	cprintf("          ÛÜ    ");
+	a=1;
+	}
+	else{
+	cprintf("   ßÛÛß ßÛ      ");
+	cprintf("    ÛÜ   ÛÜ    ");
+	}
+	delay(100);                     //used to suspend execution of a program for a particular time
+	if(b==63)
+	{
+	clrscr();
+	getup();
+	b=1;
+	}
+	else
+	b++;
+	}
+}
+void main()
+{
+	clrscr();                      // clear the screen
+	getup();                       // user defined function
+	ds();                          // user defined function
+	getch();                       // to hold the output screen until a key is pressed
+}
