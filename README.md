@@ -1,1 +1,1 @@
-# Mini-Project-CG
+# The-Lonely-TRex-Animation
